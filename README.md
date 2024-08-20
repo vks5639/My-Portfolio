@@ -10,7 +10,7 @@ I enhanced my practical experience as a Data Quality Analyst at Sustainible, whe
 
 I thrive in roles that challenge me to leverage my analytical skills and technical knowledge to solve complex problems and drive innovation. I’m keen to connect with fellow tech enthusiasts, professionals, and innovators who are passionate about using technology to drive positive change. Let’s explore how we can collaborate to create impactful solutions.
 
-For more information please check my [**Resume**](https://github.com/vks5639/My_Portfolio/blob/main/Vikash_Resume.pdf).
+For more information please check my [**Resume**](https://github.com/vks5639/My-Portfolio/blob/master/Vikash_Singh_Resume.pdf).
 
 This repository was created to showcase my analytical and technical skills (Excel, Python, SQL, Power BI, Tableau, and others).
 ## Contents
