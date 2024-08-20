@@ -18,7 +18,7 @@ This repository was created to showcase my analytical and technical skills (Exce
 * [Portfolio Projects](#portfolio-projects)
   - [Analyzing COVID RNA Sequences](#analyzing-covid-rna-sequences)
   - [Finding Heavy Traffic Indicators on I-94](#finding-heavy-traffic-indicators-on-I-94)
-  - [Exploring Financial Data using Nasdaq Data Link API](#exploring-financial-data-using-nasdaq-data-link-api)
+  - [Database Testing and Automation Project](#database_testing_and_automation_project)
   - [Analyzing Startup Fundraising Deals from Crunchbase](#analyzing-startup-fundraising-deals-from-crunchbase)
  
 * [Study Projects](#study-projects)
@@ -56,7 +56,7 @@ This section contains a list of projects with brief descriptions.
    * These findings provide valuable insights into the factors influencing traffic patterns on the I-94 Interstate highway.
    * Understanding these indicators can aid in traffic management and infrastructure planning to improve overall transportation efficiency and safety. <br>
 
-### Exploring Financial Data using Nasdaq Data Link API 
+###  Database Testing and Automation Project
 **Description:** As part of the project, I utilized Python to extract and clean financial data from the Nasdaq API, conducted trend analysis and comparative studies on metrics such as Accrued Expenses Turnover, and employed Matplotlib to create visualizations for effective presentation of findings, enabling a comprehensive exploration of financial data. <br>
 **Code:** [Exploring Financial Data](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/Exploring%20Financial%20Data%20using%20Nasdaq%20Data%20Link%20API.ipynb) <br>
 **Original dataset:** [nasdaq_data](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/nasdaq_data.csv) <br>
