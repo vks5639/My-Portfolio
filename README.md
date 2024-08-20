@@ -57,19 +57,43 @@ This section contains a list of projects with brief descriptions.
    * Understanding these indicators can aid in traffic management and infrastructure planning to improve overall transportation efficiency and safety. <br>
 
 ###  Database Testing and Automation Project
-**Description:** As part of the project, I utilized Python to extract and clean financial data from the Nasdaq API, conducted trend analysis and comparative studies on metrics such as Accrued Expenses Turnover, and employed Matplotlib to create visualizations for effective presentation of findings, enabling a comprehensive exploration of financial data. <br>
-**Code:** [Exploring Financial Data](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/Exploring%20Financial%20Data%20using%20Nasdaq%20Data%20Link%20API.ipynb) <br>
-**Original dataset:** [nasdaq_data](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/nasdaq_data.csv) <br>
-**Skills:** analytical thinking, data cleaning, data analysis, data vizualization<br>
-**Hard skills:** Python, Pandas, SQL, Excel <br>
-**Results:** 
-* Data Extraction & Analysis:
-  * Leveraged Python to extract and clean financial data from Nasdaq API.
-  * Conducted trend analysis and comparative studies on metrics like Accrued Expenses Turnover.
-* Visualization:
-  * Utilized Matplotlib to create visualizations, facilitating effective presentation of findings.
-* Conclusion:
-  * Enabled a detailed exploration of financial data, empowering insights into companies' performance over time. <br>
+**Description:** This project involved comprehensive database testing using MySQL, focusing on schema validation, stored procedures, triggers, and automated testing scripts. The goal was to ensure the accuracy, performance, and reliability of database operations, specifically within a local development environment. <br>
+
+**Technologies Used:** Technologies Used:
+  * Validated the database schema, ensuring correct table presence, naming conventions, column count, data types, sizes, nullability, and keys.
+  * TestNG: Used for automating the testing process, writing and executing test cases.
+  * Java (JDBC): For database connectivity and executing SQL commands from Java applications.
+  * Maven: Managed dependencies and build automation for the project
+    
+**Key Features and Components:**
+  ### Schema Testing
+  * Stored Procedures: Developed and tested various stored procedures like SelectAllCustomers, SelectAllCustomersByCity, and GetCustomerShipping, which performed specific tasks and returned multiple results.
+  * Stored Functions: Created reusable SQL functions such as CustomerLevel for calculating and returning values based on specific business logic.
+
+  ### Stored Procedures and Functions
+  * MySQL: Database management for creating and managing databases, tables, stored procedures, and triggers.
+  * TestNG: Used for automating the testing process, writing and executing test cases.
+  * Java (JDBC): For database connectivity and executing SQL commands from Java applications.
+  * Maven: Managed dependencies and build automation for the project
+
+  ### Trigger Implementation
+  * Implemented triggers to automate data integrity checks and business logic execution upon insertions, updates, and deletions in the database.
+  * BEFORE INSERT Trigger: Ensured data consistency in WorkCenterStats by updating total capacity before inserting into WorkCenters.
+  * AFTER UPDATE Trigger: Logged changes in sales data in SalesChanges table whenever an update occurred in the sales table.
+
+  ### Automated Testing
+  * TestNG Framework: Created automated test scripts for verifying the functionality of stored procedures, functions, and triggers. This included:
+  * Testing the existence of stored procedures.
+  * Comparing results from stored procedures against direct SQL queries to validate consistency.
+  * Verifying triggers' execution by simulating database events and checking expected outcomes.
+  
+**Outcome:** Successfully automated the testing process for database operations, leading to a more efficient development cycle and reliable database performance. The implementation of triggers and stored procedures enhanced the security, maintainability, and modularity of the database system. <br>
+
+**Skills Gained:
+* Advanced SQL programming and database management.
+* Automated testing with TestNG.
+* Java JDBC integration for database operations.
+* Maven project management and dependency handling.
 
 ### Analyzing Startup Fundraising Deals from Crunchbase 
 **Description:** As part of my project, I undertook an in-depth analysis of startup fundraising deals sourced from Crunchbase.com. Leveraging the techniques acquired in pandas, I thoroughly explored the dataset to unravel trends, patterns, and noteworthy observations within the realm of startup financing. This endeavor not only honed my skills in data analysis but also provided valuable insights into the dynamics of fundraising rounds in the startup ecosystem. <br>
