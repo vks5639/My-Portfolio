@@ -18,7 +18,7 @@ This repository was created to showcase my analytical and technical skills (Exce
 * [Portfolio Projects](#portfolio-projects)
   - [Analyzing COVID RNA Sequences](#analyzing-covid-rna-sequences)
   - [Finding Heavy Traffic Indicators on I-94](#finding-heavy-traffic-indicators-on-I-94)
-  - [Database Testing and Automation Project](#database_testing_and_automation_project)
+  - [Database Testing and Automation Project](#database-testing-and-automation-project)
   - [Analyzing Startup Fundraising Deals from Crunchbase](#analyzing-startup-fundraising-deals-from-crunchbase)
  
 * [Study Projects](#study-projects)
