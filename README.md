@@ -1,4 +1,4 @@
-| [**Home page**](https://vks5639.github.io/My_Portfolio/) | [**Resume**](https://github.com/vks5639/My_Portfolio/blob/main/Vikash_Resume.pdf) | [**Portfolio Projects**](#portfolio-projects) | [**Study Projects**](#study-projects) | [**Certificates**](#certificates) | [**Contacts**](#contacts)
+| [**Home page**](https://vks5639.github.io/My_Portfolio/) | [**Resume**](https://github.com/vks5639/My-Portfolio/blob/master/Vikash_Singh_Resume.pdf) | [**Portfolio Projects**](#portfolio-projects) | [**Study Projects**](#study-projects) | [**Certificates**](#certificates) | [**Contacts**](#contacts)
 
 # Vikash Kumar Singh
 ## About me
