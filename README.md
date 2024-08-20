@@ -89,7 +89,7 @@ This section contains a list of projects with brief descriptions.
   
 **Outcome:** Successfully automated the testing process for database operations, leading to a more efficient development cycle and reliable database performance. The implementation of triggers and stored procedures enhanced the security, maintainability, and modularity of the database system. <br>
 
-**Skills Gained:
+**Skills Gained:**
 * Advanced SQL programming and database management.
 * Automated testing with TestNG.
 * Java JDBC integration for database operations.
