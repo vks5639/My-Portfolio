@@ -4,11 +4,14 @@
 ## About me
 <img src="https://i.imgur.com/n5Ez0vv.png" width="300" height="400"> 
 
-Hello, I’m Vikash Kumar Singh. I recently graduated with a Master of Information Systems Management from Carnegie Mellon University, where my academic endeavors were grounded in a broad spectrum of coursework, including Database Management, Data-Focused Python, Statistics and Probability, A/B Testing, Telling Stories with Data, and more.
+Hello, I’m Vikash Kumar Singh. I graduated with a Master of Information Systems Management from Carnegie Mellon University. I am a passionate and results-driven Quality Assurance Engineer with a strong foundation in automation testing, backed by a Master’s degree in Information Systems Management from Carnegie Mellon University. I specialize in developing robust test frameworks and optimizing database performance, ensuring the reliability and efficiency of complex systems. With hands-on experience in tools like Selenium, TestNG, and various CI/CD pipelines, I am committed to delivering high-quality software solutions. Let's connect if you're looking for someone who can elevate your QA processes!
 
-I enhanced my practical experience as a Data Quality Analyst at Sustainible, where I managed extensive datasets to aid entrepreneurs in refining their business models. This role, along with my teaching assistantship in Database Management, underscores my passion for applying analytical acumen and technical expertise to solve real-world problems and drive innovation. My professional path has taken me from Infosys Limited, where I contributed significantly as a Quality Analyst and Engineer, to impactful academic projects at Carnegie Mellon University. These projects have not only honed my technical skills in Python, Java, and data analytics but also cultivated my expertise in data visualization, cloud-based solutions, and AI-driven technologies.
-
-I thrive in roles that challenge me to leverage my analytical skills and technical knowledge to solve complex problems and drive innovation. I’m keen to connect with fellow tech enthusiasts, professionals, and innovators who are passionate about using technology to drive positive change. Let’s explore how we can collaborate to create impactful solutions.
+Skills:
+Programming: Java, Python, R, SQL, NoSQL, MongoDB, XML, HTML, JSON, Gherkin
+Analytics and Visualization: Pandas, NumPy, Matplotlib, Tableau, SAS, Stata
+Testing and Automation Tools: Selenium WebDriver, JUnit, TestNG, Appium, Cucumber, Rest-Assured, Jenkins, Maven, TestRail, Jira, Postman, SOAPUI, Sauce Labs, Page Object Model (POM), Behavior Driven Development (BDD)
+Development and Management Tools: Git, GitHub, Figma, Eclipse, IntelliJ
+Testing Expertise: Manual Testing, Automation Testing, Regression Testing, Performance Testing, API Testing, A/B Testing, Agile/Scrum
 
 For more information please check my [**Resume**](https://github.com/vks5639/My-Portfolio/blob/master/Vikash_Singh_Resume.pdf).
 
