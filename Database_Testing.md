@@ -505,7 +505,7 @@ public class SPTesting {
 	- Stored Function: Performs a calculation or operation and returns a single value. Used within SQL queries.
 	- Objective: Understand the difference between procedures and functions to decide when to use each.
 
-![Stored Procedure vs. Stored Function(https://i.imgur.com/kbX8SjY.png)
+![Stored Procedure vs. Stored Function](https://i.imgur.com/kbX8SjY.png)
 
 - Creating a Stored Function Example:
 
@@ -679,10 +679,9 @@ public class SFTesting {
 ## Triggers in SQL
 
 A Trigger in SQL is a special type of stored procedure that automatically executes (or "fires") in response to specific events on a table or view. Triggers are typically used to enforce data integrity, automatically update related data, or log changes.
-
-	- Automatic Execution: Triggers execute automatically when a specified event occurs, such as INSERT, UPDATE, or DELETE.
- 	- Event-Driven: Triggers are associated with specific events on a table (e.g., before or after an INSERT).
-	- Cannot Be Called Directly: Unlike stored procedures, triggers cannot be called directly by a user or application. They are invoked automatically by the database system.
+- Automatic Execution: Triggers execute automatically when a specified event occurs, such as INSERT, UPDATE, or DELETE.
+- Event-Driven: Triggers are associated with specific events on a table (e.g., before or after an INSERT).
+- Cannot Be Called Directly: Unlike stored procedures, triggers cannot be called directly by a user or application. They are invoked automatically by the database system.
 
  ![](https://i.imgur.com/Kx2VvOi.png)
 
