@@ -63,12 +63,15 @@ TC006	Check size of the columns in a table
 ![](https://i.imgur.com/Om5oWC5.png)
 
 TC007	Check nulls fields in a table
+
 ![](https://i.imgur.com/N6r8Skz.png)
 
 TC008	Check column keys in a table
+
 ![](https://i.imgur.com/ZAXv81Z.png)
 
 Tests Paseed
+
 ![](https://i.imgur.com/4xKQl6C.png)
 
 ## Stored Procedures
