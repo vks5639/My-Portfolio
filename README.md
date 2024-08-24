@@ -162,6 +162,7 @@ The above metric can present us with a good overview of the percentage of user c
 **Results:** I gained a comprehensive understanding of the startup investments dataset. This exploration paved the way for insightful analysis, where I extracted valuable insights into fundraising rounds and identified notable trends in startup financing.
 
 ## Certificates
+* [Selenium Advance Tester](https://github.com/vks5639/My_Portfolio/blob/main/Certificates/Selenium%20Advance%20Tester.pdf) - Infosys
 * [Tableau for Data Scientists](https://github.com/vks5639/My_Portfolio/blob/main/Certificates/CertificateOfCompletion_Tableau%20for%20Data%20Scientists.pdf) - Linkedin Learning
 * [Querying Databases with SQL and Python](https://github.com/vks5639/My_Portfolio/blob/main/Certificates/Vikash-Kumar-Singh--Querying-Databases-with-SQL-and-Python.pdf) - Dataquest
 * [Introduction to Data Analysis in Excel](https://github.com/vks5639/My_Portfolio/blob/main/Certificates/Vikash-Kumar-Singh--Introduction-to-Data-Analysis-in-Excel.pdf) - Dataquest
@@ -170,7 +171,7 @@ The above metric can present us with a good overview of the percentage of user c
 * [Registered Product Owner](https://github.com/vks5639/My_Portfolio/blob/main/Certificates/Registered%20Product%20Owner-3988192.pdf) - Scrum Inc.
 * [Agile Developer](https://github.com/vks5639/My_Portfolio/blob/main/Certificates/Agile%20Developer.pdf) - Infosys
 * [Python Associate](https://github.com/vks5639/My_Portfolio/blob/main/Certificates/Python%20Associate.pdf) - Infosys
-* [Selenium Advance Tester](https://github.com/vks5639/My_Portfolio/blob/main/Certificates/Selenium%20Advance%20Tester.pdf) - Infosys
+
 
 ## Contacts
 * Linkedin: [https://www.linkedin.com/in/vikash-ks/](https://www.linkedin.com/in/vikash-ks/)
