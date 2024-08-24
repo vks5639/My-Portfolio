@@ -1,3 +1,42 @@
+##  Database Testing and Automation Project
+**Description:** This project involved comprehensive database testing using MySQL, focusing on schema validation, stored procedures, triggers, and automated testing scripts. The goal was to ensure the accuracy, performance, and reliability of database operations, specifically within a local development environment. <br>
+
+**Technologies Used:** Technologies Used:
+  * Validated the database schema, ensuring correct table presence, naming conventions, column count, data types, sizes, nullability, and keys.
+  * TestNG: Used for automating the testing process, writing and executing test cases.
+  * Java (JDBC): For database connectivity and executing SQL commands from Java applications.
+  * Maven: Managed dependencies and build automation for the project
+    
+**Key Features and Components:**
+  #### Schema Testing
+  * Stored Procedures: Developed and tested various stored procedures like SelectAllCustomers, SelectAllCustomersByCity, and GetCustomerShipping, which performed specific tasks and returned multiple results.
+  * Stored Functions: Created reusable SQL functions such as CustomerLevel for calculating and returning values based on specific business logic.
+
+  #### Stored Procedures and Functions
+  * MySQL: Database management for creating and managing databases, tables, stored procedures, and triggers.
+  * TestNG: Used for automating the testing process, writing and executing test cases.
+  * Java (JDBC): For database connectivity and executing SQL commands from Java applications.
+  * Maven: Managed dependencies and build automation for the project
+
+  #### Trigger Implementation
+  * Implemented triggers to automate data integrity checks and business logic execution upon insertions, updates, and deletions in the database.
+  * BEFORE INSERT Trigger: Ensured data consistency in WorkCenterStats by updating total capacity before inserting into WorkCenters.
+  * AFTER UPDATE Trigger: Logged changes in sales data in SalesChanges table whenever an update occurred in the sales table.
+
+  #### Automated Testing
+  * TestNG Framework: Created automated test scripts for verifying the functionality of stored procedures, functions, and triggers. This included:
+  * Testing the existence of stored procedures.
+  * Comparing results from stored procedures against direct SQL queries to validate consistency.
+  * Verifying triggers' execution by simulating database events and checking expected outcomes.
+  
+**Outcome:** Successfully automated the testing process for database operations, leading to a more efficient development cycle and reliable database performance. The implementation of triggers and stored procedures enhanced the security, maintainability, and modularity of the database system. <br>
+
+**Skills Gained:**
+* Advanced SQL programming and database management.
+* Automated testing with TestNG.
+* Java JDBC integration for database operations.
+* Maven project management and dependency handling.
+
 ## Setting Up the Environment
 
 - Install MAMP:
