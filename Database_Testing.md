@@ -28,7 +28,7 @@
     - DESCRIBE information_schema.columns;
     - Objective: This command provides the structure of the columns in the information_schema database, which contains metadata about all the columns in the database.
 
-- Test Cases (TC001 - TC008):
+- Test Cases:
 
     - TC001: Check if the required tables are present in the database schema.
     - TC002: Verify that table names follow the correct naming conventions.
@@ -41,6 +41,16 @@
     - Objective: Validate that the database schema matches the expected structure and constraints.
 
 ![Test Cases](https://i.imgur.com/9gD4CdJ.png)
+![](https://i.imgur.com/5DAzNQa.png)
+![](https://i.imgur.com/szQoyDW.png)
+![](https://i.imgur.com/2ryRCDv.png)
+![](https://i.imgur.com/hzB81oW.png)
+![](https://i.imgur.com/78mWI2r.png)
+![](https://i.imgur.com/oaWqi4K.png)
+![](https://i.imgur.com/Om5oWC5.png)
+![](https://i.imgur.com/N6r8Skz.png)
+![](https://i.imgur.com/ZAXv81Z.png)
+![](https://i.imgur.com/4xKQl6C.png)
 
 ## Stored Procedures
 
