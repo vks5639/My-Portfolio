@@ -41,23 +41,33 @@
     - Objective: Validate that the database schema matches the expected structure and constraints.
 
 ![Test Cases](https://i.imgur.com/9gD4CdJ.png)
+
 ![](https://i.imgur.com/5DAzNQa.png)
+
 TC001	Check table presence in database schema
 ![](https://i.imgur.com/szQoyDW.png)
+
 TC002	Check table name conventions
 ![](https://i.imgur.com/2ryRCDv.png)
+
 TC003	Check number of columns in a table
 ![](https://i.imgur.com/hzB81oW.png)
+
 TC004	Check column names in a table
 ![](https://i.imgur.com/78mWI2r.png)
+
 TC005	Check data type of columns in table
 ![](https://i.imgur.com/oaWqi4K.png)
+
 TC006	Check size of the columns in a table
 ![](https://i.imgur.com/Om5oWC5.png)
+
 TC007	Check nulls fields in a table
 ![](https://i.imgur.com/N6r8Skz.png)
+
 TC008	Check column keys in a table
 ![](https://i.imgur.com/ZAXv81Z.png)
+
 Tests Paseed
 ![](https://i.imgur.com/4xKQl6C.png)
 
