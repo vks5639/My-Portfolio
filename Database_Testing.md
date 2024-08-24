@@ -14,126 +14,53 @@
       - Port: 3306
       - User: root
       - Password: root
+    - Create a new database called classic_models
+    - Import the sql file classic_models in the database
 
 ## Schema Testing
 
+- Schema Testing Overview:
 
+    - The purpose of schema testing is to ensure that the database schema is correctly set up. This includes verifying the presence of tables, the correct number of columns, data types, and other constraints.
 
-DESCRIBE information_schema.columns; provides the structure of the columns table in the information_schema database.
+- SQL Command:
 
-This table contains metadata about all the columns in the database, including details such as column names, data types, nullability, keys, and default values.
+    - DESCRIBE information_schema.columns;
+    - Objective: This command provides the structure of the columns in the information_schema database, which contains metadata about all the columns in the database.
 
-This command is useful for understanding the schema and attributes of columns across all tables in the database.
+- Test Cases (TC001 - TC008):
 
+    - TC001: Check if the required tables are present in the database schema.
+    - TC002: Verify that table names follow the correct naming conventions.
+    - TC003: Ensure that the correct number of columns exists in each table.
+    - TC004: Check that column names adhere to naming conventions.
+    - TC005: Verify the data types of columns.
+    - TC006: Confirm that columns have the correct size limits.
+    - TC007: Check for nullable fields in the table columns.
+    - TC008: Validate the presence of primary and foreign keys in the columns.
+    - Objective: Validate that the database schema matches the expected structure and constraints.
 
-
-
-
-
-
-
-
-
-
-
-
-TC001	Check table presence in database schema
-
-
-
-
-
-TC002	Check table name conventions
-
-
-
-
-
-
-
-TC003	Check number of columns in a table
-
-
-
-
-
-TC004	Check column names in a table
-
-
-
-
-
-
-
-TC005	Check data type of columns in table
-
-
-
-
-
-TC006	Check size of the columns in a table
-
-
-
-
-
-TC007	Check nulls fields in a table
-
-
-
-
-
-TC008	Check column keys in a table
-
-
-
-
-
-Tests Passed
-
-
-
-
+![Test Cases]("https://imgur.com/WvbWFfq")
 
 ## Stored Procedures
 
-- A stored procedure is a set of SQL statements that can be stored in the database and executed as a single unit. They can accept input parameters, return output parameters, and contain programmatic constructs such as loops and conditionals.
-
+- Overview
+    - A stored procedure is a set of SQL statements that can be stored in the database and executed as a single unit. They can accept input parameters, return output parameters, and contain programmatic constructs like loops and conditionals.
 
 ## Benefits of Stored Procedures
 
-- Performance: Reduced network traffic by sending a single call to execute multiple statements.
-Execution plans are cached and reused, reducing parsing time.
+    - Performance: Reduced network traffic by sending a single call to execute multiple statements. Execution plans are cached and reused, reducing parsing time.
+    - Security: Enhanced security by encapsulating business logic within the database. Permissions can be granted on the procedure instead of individual tables.
+    - Maintainability: Centralized logic makes it easier to update and maintain, reducing code duplication across multiple applications.
+    - Consistency: Ensures consistent implementation of business rules, reducing the risk of errors from complex SQL statements.
+    - Modularity: Breaks down complex operations into manageable, reusable code blocks, facilitating structured and organized programming.
 
+- Example Stored Procedures:
 
-
-- Security:
-Enhanced security through encapsulation of business logic.
-
-Permissions can be granted on the procedure instead of individual tables.
-
-
-
-- Maintainability:
-Centralized logic, making it easier to update and maintain.
-
-Reduces duplication of code across multiple applications.
-
-
-
-- Consistency:
-Ensures consistent implementation of business rules.
-
-Reduces risk of errors from complex SQL statements.
-
-
-
-- Modularity:
-Breaks down complex operations into manageable, reusable code blocks.
-
-Facilitates structured and organized programming.
-
-These benefits make stored procedures a powerful tool for efficient, secure, and maintainable database management.
+    - SelectAllCustomers: Selects all customers from the customers table.
+    - SelectAllCustomersByCity: Selects all customers from a specific city.
+    - get_order_by_cust: Retrieves order statistics for a specific customer.
+    - Objective: Automate and encapsulate common database operations to improve efficiency and reduce errors.
 
 
 
