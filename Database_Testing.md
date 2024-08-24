@@ -220,7 +220,6 @@ call InsertSupplierProduct(1,3);
 - Objective: Ensure that stored procedures execute correctly, return the expected results, and handle input parameters appropriately.
 
 - Add dependencies in pom.xml
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -254,8 +253,6 @@ call InsertSupplierProduct(1,3);
 - Test Script
 
 package storedProcedureTesting;
-
-
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
