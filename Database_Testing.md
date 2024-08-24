@@ -136,9 +136,9 @@ Tests Paseed
 
 
 ## Stored Procedure: 
-
-### SelectAllCustomers
 ```sql
+### SelectAllCustomers
+
 delimiter //
 
 create procedure SelectAllCustomers()
@@ -293,6 +293,7 @@ call InsertSupplierProduct(1,3);
 - Objective: Ensure that stored procedures execute correctly, return the expected results, and handle input parameters appropriately.
 
 - Add dependencies in pom.xml
+```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -322,9 +323,11 @@ call InsertSupplierProduct(1,3);
 	</dependencies>
 
 </project>
+```
 
 - Test Script
 
+```java
 package storedProcedureTesting;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -485,6 +488,8 @@ public class SPTesting {
 
 }
 
+```
+
 
 ![Console Output](https://i.imgur.com/T2IXAGn.png)
 
@@ -507,7 +512,7 @@ public class SPTesting {
 	- CustomerLevel: A function that returns a customer’s level (e.g., PLATINUM, GOLD, SILVER) based on their credit limit.
 	- Objective: Implement and test a stored function that categorizes customers based on their credit limit.
 
-
+```sql
 DELIMITER //
 
 CREATE FUNCTION CustomerLevel(credit DECIMAL(10,2)) RETURNS VARCHAR(20)
@@ -558,7 +563,7 @@ DELIMITER ;
 CALL GetCustomerLevel(131, @customerLevel);
 SELECT @customerLevel;
 
-
+```
 
 ![](https://i.imgur.com/XyaGsSl.png)
 
@@ -566,6 +571,7 @@ SELECT @customerLevel;
 
 ![](https://i.imgur.com/f0qVWvj.png)
 
+```java
 package storedFunctionTesting;
 
 import static org.testng.Assert.assertEquals;
@@ -662,6 +668,8 @@ public class SFTesting {
 
 }
 
+```
+
 ![](https://i.imgur.com/tVCW8rB.png)
 
 ![](https://i.imgur.com/nW4aJq9.png)
@@ -710,6 +718,8 @@ Summary:
 
 
 ![](https://i.imgur.com/LgPzwCc.png) 
+
+```sql
 DROP TABLE IF EXISTS WorkCenters;
 DROP TABLE IF EXISTS WorkCenterStats;
 
@@ -893,3 +903,5 @@ CREATE TRIGGER after_salaries_delete AFTER DELETE ON Salaries FOR EACH ROW
 BEGIN
     UPDATE SalaryBudgets SET total = total - OLD.salary;
 END;
+
+```
