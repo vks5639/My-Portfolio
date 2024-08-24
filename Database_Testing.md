@@ -49,11 +49,11 @@
 
 ## Benefits of Stored Procedures
 
-    - Performance: Reduced network traffic by sending a single call to execute multiple statements. Execution plans are cached and reused, reducing parsing time.
-    - Security: Enhanced security by encapsulating business logic within the database. Permissions can be granted on the procedure instead of individual tables.
-    - Maintainability: Centralized logic makes it easier to update and maintain, reducing code duplication across multiple applications.
-    - Consistency: Ensures consistent implementation of business rules, reducing the risk of errors from complex SQL statements.
-    - Modularity: Breaks down complex operations into manageable, reusable code blocks, facilitating structured and organized programming.
+- Performance: Reduced network traffic by sending a single call to execute multiple statements. Execution plans are cached and reused, reducing parsing time.
+- Security: Enhanced security by encapsulating business logic within the database. Permissions can be granted on the procedure instead of individual tables.
+- Maintainability: Centralized logic makes it easier to update and maintain, reducing code duplication across multiple applications.
+- Consistency: Ensures consistent implementation of business rules, reducing the risk of errors from complex SQL statements.
+- Modularity: Breaks down complex operations into manageable, reusable code blocks, facilitating structured and organized programming.
 
 - Example Stored Procedures:
 
