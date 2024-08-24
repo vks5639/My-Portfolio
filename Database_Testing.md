@@ -415,391 +415,183 @@ public class SPTesting {
 
 ![Console Output](https://i.imgur.com/T2IXAGn.png)
 
+## Stored Functions
+
+- Overview:
+
+	- A stored function in SQL is similar to a stored procedure but returns a single value. It is often used to encapsulate business logic that can be reused in SQL queries.
+
+- Comparison: Stored Procedure vs. Stored Function:
+
+	- Stored Procedure: Can perform multiple operations and may return multiple values. Used for tasks like data manipulation.
+	- Stored Function: Performs a calculation or operation and returns a single value. Used within SQL queries.
+	- Objective: Understand the difference between procedures and functions to decide when to use each.
+
+![Stored Procedure vs. Stored Function(https://i.imgur.com/kbX8SjY.png)
+
+- Creating a Stored Function Example:
+
+	- CustomerLevel: A function that returns a customer’s level (e.g., PLATINUM, GOLD, SILVER) based on their credit limit.
+	- Objective: Implement and test a stored function that categorizes customers based on their credit limit.
 
 
-## Stored Function in SQL
-
-
-
-A Stored Function in SQL is a reusable set of SQL statements that returns a single value. It can accept parameters, perform calculations, and return the result. Stored functions are often used to encapsulate business logic that can be used in SQL queries.
-
-
-
-Stored Procedure vs. Stored Function
-
-In summary, stored procedures are used for performing actions and can return multiple results, while stored functions are designed for calculations and always return a single value, which can be used directly in SQL queries.
-
-
-
-
-
-## Creating a Stored Function
-
-
-
-```java
 DELIMITER //
-```
-
-
 
 CREATE FUNCTION CustomerLevel(credit DECIMAL(10,2)) RETURNS VARCHAR(20)
-
 DETERMINISTIC
-
 BEGIN
+    DECLARE customerLevel VARCHAR(20);
 
-DECLARE customerLevel VARCHAR(20);
+    IF credit > 50000 THEN
+        SET customerLevel = 'PLATINUM';
+    ELSEIF credit >= 10000 AND credit <= 50000 THEN
+        SET customerLevel = 'GOLD';
+    ELSEIF credit < 10000 THEN
+        SET customerLevel = 'SILVER';
+    END IF;
 
-
-
-IF credit > 50000 THEN
-
-SET customerLevel = 'PLATINUM';
-
-ELSEIF credit >= 10000 AND credit <= 50000 THEN
-
-SET customerLevel = 'GOLD';
-
-ELSEIF credit < 10000 THEN
-
-SET customerLevel = 'SILVER';
-
-END IF;
-
-
-
-RETURN customerLevel;
-
+    RETURN customerLevel;
 END //
 
-
-
-```java
 DELIMITER ;
-```
 
-
-
-Calling the Stored Function
-
-
-
-```java
+- Calling the Stored Function
 SELECT CustomerLevel(creditLimit) FROM customers;
-```
+
+![](https://i.imgur.com/1v90BRq.png)
 
 
+Calling Stored Function using Stored Procedure
 
-
-
-
-
-## Calling Stored Function using Stored Procedure
-
-
-
-```java
 DELIMITER //
-```
 
-
-
-```java
 CREATE PROCEDURE GetCustomerLevel(
-```
-
-IN customerNo INT,
-
-OUT customerLevel VARCHAR(20)
-
+    IN customerNo INT,
+    OUT customerLevel VARCHAR(20)
 )
-
 BEGIN
+    DECLARE credit DEC(10,2) DEFAULT 0;
 
-DECLARE credit DEC(10,2) DEFAULT 0;
+    -- get credit limit of a customer
+    SELECT creditLimit INTO credit FROM customers WHERE customerNumber = customerNo;
 
-
-
--- get credit limit of a customer
-
-```java
-SELECT creditLimit INTO credit FROM customers WHERE customerNumber = customerNo;
-```
-
-
-
--- call the function
-
-SET customerLevel = CustomerLevel(credit);
-
+    -- call the function
+    SET customerLevel = CustomerLevel(credit);
 END //
 
-
-
-```java
 DELIMITER ;
-```
 
 
-
-
-
-```java
 CALL GetCustomerLevel(131, @customerLevel);
-```
-
-```java
 SELECT @customerLevel;
-```
 
 
 
+![](https://i.imgur.com/XyaGsSl.png)
 
+- Test Cases to verify StoredFunction
 
+![](https://i.imgur.com/f0qVWvj.png)
 
-
-## Test Cases to verify StoredFunction
-
-
-
-
-
-
-
-```java
 package storedFunctionTesting;
-```
 
-
-
-```java
 import static org.testng.Assert.assertEquals;
-```
 
-
-
-```java
 import java.sql.CallableStatement;
-```
-
-```java
 import java.sql.Connection;
-```
-
-```java
 import java.sql.DriverManager;
-```
-
-```java
 import java.sql.ResultSet;
-```
-
-```java
 import java.sql.SQLException;
-```
-
-```java
 import java.sql.Statement;
-```
-
-```java
 import java.sql.Types;
-```
 
-
-
-```java
 import org.apache.commons.lang3.StringUtils;
-```
-
-```java
 import org.testng.Assert;
-```
-
-```java
 import org.testng.annotations.AfterClass;
-```
-
-```java
 import org.testng.annotations.BeforeClass;
-```
-
-```java
 import org.testng.annotations.Test;
-```
 
-
-
-```java
 public class SFTesting {
-```
 
+	Connection con = null;
+	Statement stmt = null;
+	ResultSet rs;
+	CallableStatement cstmt = null;
+	ResultSet rs1;
+	ResultSet rs2;
 
+	@BeforeClass
+	void setup() throws SQLException {
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/classic_models", "root", "root");
 
-Connection con = null;
+	}
 
-Statement stmt = null;
+	@AfterClass
+	void tearDown() throws SQLException {
+		con.close();
+	}
 
-ResultSet rs;
+	@Test(priority = 1)
+	public void test_storedFunctionExists() throws SQLException {
+		stmt = con.createStatement();
+		rs = stmt.executeQuery("SHOW FUNCTION STATUS WHERE Name='CustomerLevel'");
+		rs.next();
+		Assert.assertEquals(rs.getString("Name"), "CustomerLevel");
+	}
+	
+	
+	@Test(priority = 2)
+	public void test_CustomerLevel_SQL() throws SQLException {
+		rs1 = con.createStatement().executeQuery("SELECT customerName, CustomerLevel(creditLimit) FROM customers");
+		rs2 = con.createStatement().executeQuery("SELECT customerName,CASE WHEN creditLimit > 50000 THEN 'PLATINUM' WHEN creditLimit >= 10000 AND creditLimit < 50000 THEN 'GOLD' WHEN creditLimit <10000 THEN 'SILVER' END as customerlevel FROM customers");
+		Assert.assertEquals(compareResultSets(rs1, rs2), true);
+	}
+	
+	@Test(priority=3)
+	void test_CustomerLevel_StoredProcedure() throws SQLException {
+	    cstmt = con.prepareCall("{call GetCustomerLevel(?,?)}");
+	    cstmt.setInt(1, 131);
+	    cstmt.registerOutParameter(2, Types.VARCHAR);
 
-CallableStatement cstmt = null;
+	    cstmt.executeQuery();
 
-ResultSet rs1;
+	    String customerLevel = cstmt.getString(2);
+	    
+	    Statement stmt = con.createStatement();
+	    rs = stmt.executeQuery("SELECT customerName,\r\n"
+	    		+ "CASE\r\n"
+	    		+ "WHEN creditLimit > 50000 THEN 'PLATINUM'\r\n"
+	    		+ "WHEN creditLimit >= 10000 AND creditLimit < 50000 THEN 'GOLD'\r\n"
+	    		+ "WHEN creditLimit <10000 THEN 'SILVER'\r\n"
+	    		+ "END as customerlevel FROM customers where customerNumber=131;");
 
-ResultSet rs2;
+	    rs.next();
 
-
-
-@BeforeClass
-
-void setup() throws SQLException {
-
-con = DriverManager.getConnection("jdbc:mysql://localhost:3306/classic_models", "root", "root");
-
-
+	    String exp_customerlevel = rs.getString("customerlevel");
+	    
+	    Assert.assertEquals(customerLevel, exp_customerlevel);
+	}
+	
+	
+	
+	public boolean compareResultSets(ResultSet resultSet1, ResultSet resultSet2) throws SQLException {
+        while (resultSet1.next()) {
+            resultSet2.next();
+            int count = resultSet1.getMetaData().getColumnCount();
+            for (int i = 1; i <= count; i++) {
+                if (!StringUtils.equals(resultSet1.getString(i), resultSet2.getString(i))) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
 }
 
+![](https://i.imgur.com/tVCW8rB.png)
 
-
-@AfterClass
-
-void tearDown() throws SQLException {
-
-con.close();
-
-}
-
-
-
-@Test(priority = 1)
-
-public void test_storedFunctionExists() throws SQLException {
-
-stmt = con.createStatement();
-
-rs = stmt.executeQuery("SHOW FUNCTION STATUS WHERE Name='CustomerLevel'");
-
-rs.next();
-
-Assert.assertEquals(rs.getString("Name"), "CustomerLevel");
-
-}
-
-
-
-
-
-@Test(priority = 2)
-
-public void test_CustomerLevel_SQL() throws SQLException {
-
-rs1 = con.createStatement().executeQuery("SELECT customerName, CustomerLevel(creditLimit) FROM customers");
-
-rs2 = con.createStatement().executeQuery("SELECT customerName,CASE WHEN creditLimit > 50000 THEN 'PLATINUM' WHEN creditLimit >= 10000 AND creditLimit < 50000 THEN 'GOLD' WHEN creditLimit <10000 THEN 'SILVER' END as customerlevel FROM customers");
-
-Assert.assertEquals(compareResultSets(rs1, rs2), true);
-
-}
-
-
-
-@Test(priority=3)
-
-void test_CustomerLevel_StoredProcedure() throws SQLException {
-
-cstmt = con.prepareCall("{call GetCustomerLevel(?,?)}");
-
-cstmt.setInt(1, 131);
-
-cstmt.registerOutParameter(2, Types.VARCHAR);
-
-
-
-cstmt.executeQuery();
-
-
-
-String customerLevel = cstmt.getString(2);
-
-
-
-Statement stmt = con.createStatement();
-
-rs = stmt.executeQuery("SELECT customerName,\r\n"
-
-+ "CASE\r\n"
-
-+ "WHEN creditLimit > 50000 THEN 'PLATINUM'\r\n"
-
-+ "WHEN creditLimit >= 10000 AND creditLimit < 50000 THEN 'GOLD'\r\n"
-
-+ "WHEN creditLimit <10000 THEN 'SILVER'\r\n"
-
-+ "END as customerlevel FROM customers where customerNumber=131;");
-
-
-
-rs.next();
-
-
-
-String exp_customerlevel = rs.getString("customerlevel");
-
-
-
-Assert.assertEquals(customerLevel, exp_customerlevel);
-
-}
-
-
-
-
-
-
-
-public boolean compareResultSets(ResultSet resultSet1, ResultSet resultSet2) throws SQLException {
-
-while (resultSet1.next()) {
-
-resultSet2.next();
-
-int count = resultSet1.getMetaData().getColumnCount();
-
-for (int i = 1; i <= count; i++) {
-
-if (!StringUtils.equals(resultSet1.getString(i), resultSet2.getString(i))) {
-
-return false;
-
-}
-
-}
-
-}
-
-return true;
-
-}
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](https://i.imgur.com/tVCW8rB.png)
 
 
 
