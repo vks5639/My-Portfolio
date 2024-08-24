@@ -40,7 +40,7 @@
     - TC008: Validate the presence of primary and foreign keys in the columns.
     - Objective: Validate that the database schema matches the expected structure and constraints.
 
-![Test Cases]("https://imgur.com/WvbWFfq")
+[Imgur](https://imgur.com/WvbWFfq)
 
 ## Stored Procedures
 
