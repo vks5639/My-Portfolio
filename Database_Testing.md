@@ -138,7 +138,7 @@ Tests Paseed
 ## Stored Procedure: 
 
 ### SelectAllCustomers
-
+```sql
 delimiter //
 
 create procedure SelectAllCustomers()
@@ -259,6 +259,8 @@ DELIMITER ;
 call InsertSupplierProduct(1,1);
 call InsertSupplierProduct(1,2);
 call InsertSupplierProduct(1,3);
+
+```
 
 ## Stored Procedures Testing
 
