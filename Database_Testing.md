@@ -591,485 +591,232 @@ public class SFTesting {
 
 ![](https://i.imgur.com/tVCW8rB.png)
 
-![](https://i.imgur.com/tVCW8rB.png)
+![](https://i.imgur.com/nW4aJq9.png)
 
 
 
 ## Triggers in SQL
 
-
-
 A Trigger in SQL is a special type of stored procedure that automatically executes (or "fires") in response to specific events on a table or view. Triggers are typically used to enforce data integrity, automatically update related data, or log changes.
 
+	- Automatic Execution: Triggers execute automatically when a specified event occurs, such as INSERT, UPDATE, or DELETE.
+ 	- Event-Driven: Triggers are associated with specific events on a table (e.g., before or after an INSERT).
+	- Cannot Be Called Directly: Unlike stored procedures, triggers cannot be called directly by a user or application. They are invoked automatically by the database system.
 
+ ![](https://i.imgur.com/Kx2VvOi.png)
 
-Key Points about Triggers:
+- Triggers are event-driven and automatically executed when certain events occur in the database. They are mainly used for maintaining data integrity and automating certain tasks related to data changes.
 
-Automatic Execution: Triggers execute automatically when a specified event occurs, such as INSERT, UPDATE, or DELETE.
+- Stored Procedures are manually invoked, can perform complex operations, and are more versatile in terms of functionality. They are generally used for tasks that require explicit execution by a user or application.
 
-Event-Driven: Triggers are associated with specific events on a table (e.g., before or after an INSERT).
+- In MySQL, triggers are classified based on the timing of their execution relative to the triggering event and the type of event that activates them. There are two main dimensions to classify triggers: timing and event.
 
-Cannot Be Called Directly: Unlike stored procedures, triggers cannot be called directly by a user or application. They are invoked automatically by the database system.
+- Types of Triggers in MySQL
+1.	Timing:
+	- BEFORE Trigger: Executes before the triggering event occurs. Typically used to validate or modify data before it is inserted, updated, or deleted.
+	- AFTER Trigger: Executes after the triggering event occurs. Often used for logging changes, updating related data, or enforcing complex business rules.
 
+2.	Event:
+	- INSERT Trigger: Fired when a new row is inserted into a table.
+	- UPDATE Trigger: Fired when an existing row in a table is modified.
+	- DELETE Trigger: Fired when a row is deleted from a table.
 
-
-
-
-Trigger vs. Stored Procedure
-
-Triggers are event-driven and automatically executed when certain events occur in the database. They are mainly used for maintaining data integrity and automating certain tasks related to data changes.
-
-
-
-Stored Procedures are manually invoked, can perform complex operations, and are more versatile in terms of functionality. They are generally used for tasks that require explicit execution by a user or application.
-
-
-
-In MySQL, triggers are classified based on the timing of their execution relative to the triggering event and the type of event that activates them. There are two main dimensions to classify triggers: timing and event.
-
-Types of Triggers in MySQL
-
-Timing:
-
-BEFORE Trigger: Executes before the triggering event occurs. Typically used to validate or modify data before it is inserted, updated, or deleted.
-
-AFTER Trigger: Executes after the triggering event occurs. Often used for logging changes, updating related data, or enforcing complex business rules.
-
-Event:
-
-INSERT Trigger: Fired when a new row is inserted into a table.
-
-UPDATE Trigger: Fired when an existing row in a table is modified.
-
-DELETE Trigger: Fired when a row is deleted from a table.
-
-Combining Timing and Event
-
+3. 	Combining Timing and Event
+   
 The timing and event dimensions combine to create six possible types of triggers in MySQL:
-
-BEFORE INSERT Trigger: Executes before a new row is inserted into the table.
-
-AFTER INSERT Trigger: Executes after a new row has been inserted into the table.
-
-BEFORE UPDATE Trigger: Executes before an existing row in the table is updated.
-
-AFTER UPDATE Trigger: Executes after an existing row in the table has been updated.
-
-BEFORE DELETE Trigger: Executes before a row is deleted from the table.
-
-AFTER DELETE Trigger: Executes after a row has been deleted from the table.
-
+1.	BEFORE INSERT Trigger: Executes before a new row is inserted into the table.
+2.	AFTER INSERT Trigger: Executes after a new row has been inserted into the table.
+3.	BEFORE UPDATE Trigger: Executes before an existing row in the table is updated.
+4.	AFTER UPDATE Trigger: Executes after an existing row in the table has been updated.
+5.	BEFORE DELETE Trigger: Executes before a row is deleted from the table.
+6.	AFTER DELETE Trigger: Executes after a row has been deleted from the table.
+   
 Summary:
-
-BEFORE Triggers are useful for validation and pre-processing before the actual event occurs.
-
-AFTER Triggers are typically used for actions that need to occur after the data change has been committed, like logging or cascading updates to other tables.
+	- BEFORE Triggers are useful for validation and pre-processing before the actual event occurs.
+	- AFTER Triggers are typically used for actions that need to occur after the data change has been committed, like logging or cascading updates to other tables.
 
 
-
-
-
-
-
-
-
+![](https://i.imgur.com/LgPzwCc.png) 
 DROP TABLE IF EXISTS WorkCenters;
-
 DROP TABLE IF EXISTS WorkCenterStats;
 
-
-
 CREATE TABLE WorkCenters (
-
-id INT AUTO_INCREMENT PRIMARY KEY,
-
-name VARCHAR(100) NOT NULL,
-
-capacity INT NOT NULL
-
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    capacity INT NOT NULL
 );
-
-
 
 CREATE TABLE WorkCenterStats (
-
-totalCapacity INT NOT NULL
-
+    totalCapacity INT NOT NULL
 );
 
 
-
-
-
-```java
 DELIMITER //
-```
-
 CREATE TRIGGER before_workcenters_insert BEFORE INSERT ON Workcenters FOR EACH ROW
-
 BEGIN
+    DECLARE rowcount INT;
 
-DECLARE rowcount INT;
+    SELECT COUNT(*) INTO rowcount FROM WorkCenterStats;
 
-
-
-```java
-SELECT COUNT(*) INTO rowcount FROM WorkCenterStats;
-```
-
-
-
-IF rowcount > 0 THEN
-
-UPDATE WorkCenterStats SET totalCapacity = totalCapacity + new.capacity;
-
-ELSE
-
-INSERT INTO WorkCenterStats(totalCapacity) VALUES(new.capacity);
-
-END IF;
-
+    IF rowcount > 0 THEN
+        UPDATE WorkCenterStats SET totalCapacity = totalCapacity + new.capacity;
+    ELSE
+        INSERT INTO WorkCenterStats(totalCapacity) VALUES(new.capacity);
+    END IF;
 END //
 
-
-
-```java
 DELIMITER ;
-```
-
-
 
 SHOW TRIGGERS;
 
-
-
-
-
+![](https://i.imgur.com/bbihUPf.png)
 CREATE TABLE members (
-
-id INT AUTO_INCREMENT,
-
-name VARCHAR(100) NOT NULL,
-
-email VARCHAR(255) NOT NULL,
-
-birthDate DATE,
-
-PRIMARY KEY (id)
-
+    id INT AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    birthDate DATE,
+    PRIMARY KEY (id)
 );
-
-
 
 CREATE TABLE reminders (
-
-id INT AUTO_INCREMENT,
-
-memberId INT,
-
-message VARCHAR(255) NOT NULL,
-
-PRIMARY KEY (id, memberId)
-
+    id INT AUTO_INCREMENT,
+    memberId INT,
+    message VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id, memberId)
 );
 
-
-
-```java
 DELIMITER //
-```
 
 
-
-CREATE TRIGGER after_members_insert
-
-AFTER INSERT ON members
-
+CREATE TRIGGER after_members_insert 
+AFTER INSERT ON members 
 FOR EACH ROW
-
 BEGIN
-
-IF NEW.birthDate IS NULL THEN
-
-INSERT INTO reminders(memberId, message)
-
-VALUES(NEW.id, CONCAT('Hi ', NEW.name, ', please update your date of birth.'));
-
-END IF;
-
+    IF NEW.birthDate IS NULL THEN
+        INSERT INTO reminders(memberId, message)
+        VALUES(NEW.id, CONCAT('Hi ', NEW.name, ', please update your date of birth.'));
+    END IF;
 END //
 
-
-
-```java
 DELIMITER ;
-```
 
-
-
-
+![](https://i.imgur.com/birFUjt.png)
 
 CREATE TABLE sales (
-
-id INT AUTO_INCREMENT,
-
-product VARCHAR(100) NOT NULL,
-
-quantity INT NOT NULL DEFAULT 0,
-
-fiscalYear SMALLINT NOT NULL,
-
-fiscalMonth TINYINT NOT NULL,
-
-CHECK(fiscalMonth >= 1 AND fiscalMonth <= 12),
-
-CHECK(fiscalYear BETWEEN 2000 and 2050),
-
-CHECK(quantity >= 0),
-
-UNIQUE(product, fiscalYear, fiscalMonth),
-
-PRIMARY KEY(id)
-
+    id INT AUTO_INCREMENT,
+    product VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL DEFAULT 0,
+    fiscalYear SMALLINT NOT NULL,
+    fiscalMonth TINYINT NOT NULL,
+    CHECK(fiscalMonth >= 1 AND fiscalMonth <= 12),
+    CHECK(fiscalYear BETWEEN 2000 and 2050),
+    CHECK(quantity >= 0),
+    UNIQUE(product, fiscalYear, fiscalMonth),
+    PRIMARY KEY(id)
 );
-
-
 
 INSERT INTO sales(product, quantity, fiscalYear, fiscalMonth) VALUES
-
 ('2003 Harley-Davidson Eagle Drag Bike', 120, 2020, 1),
-
 ('1969 Corvair Monza', 150, 2020, 1),
-
 ('1970 Plymouth Hemi Cuda', 200, 2020, 1);
 
-
-
-```java
 SELECT * FROM sales;
-```
 
-
-
-```java
 DELIMITER //
-```
 
-
-
-CREATE TRIGGER before_sales_update
-
-BEFORE UPDATE ON sales
-
+CREATE TRIGGER before_sales_update 
+BEFORE UPDATE ON sales 
 FOR EACH ROW
-
 BEGIN
+    DECLARE errorMessage VARCHAR(255);
+    SET errorMessage = CONCAT('The new quantity ', NEW.quantity, 
+        ' cannot be 3 times greater than the current quantity ', 
+        OLD.quantity);
 
-DECLARE errorMessage VARCHAR(255);
-
-SET errorMessage = CONCAT('The new quantity ', NEW.quantity,
-
-' cannot be 3 times greater than the current quantity ',
-
-OLD.quantity);
-
-
-
-IF NEW.quantity > OLD.quantity * 3 THEN
-
-SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = errorMessage;
-
-END IF;
-
+    IF NEW.quantity > OLD.quantity * 3 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = errorMessage;
+    END IF;
 END //
 
-
-
-```java
 DELIMITER ;
-```
 
-
-
-
-
-
-
-
+![](https://i.imgur.com/7UrKqZp.png)
 
 CREATE TABLE SalesChanges (
-
-id INT AUTO_INCREMENT PRIMARY KEY,
-
-salesId INT,
-
-beforeQuantity INT,
-
-afterQuantity INT,
-
-changedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    salesId INT,
+    beforeQuantity INT,
+    afterQuantity INT,
+    changedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-
-
-```java
 DELIMITER //
-```
 
-
-
-CREATE TRIGGER after_sales_update
-
-AFTER UPDATE ON sales
-
+CREATE TRIGGER after_sales_update 
+AFTER UPDATE ON sales 
 FOR EACH ROW
-
 BEGIN
-
-IF OLD.quantity <> NEW.quantity THEN
-
-INSERT INTO SalesChanges(salesId, beforeQuantity, afterQuantity)
-
-VALUES(OLD.id, OLD.quantity, NEW.quantity);
-
-END IF;
-
+    IF OLD.quantity <> NEW.quantity THEN
+        INSERT INTO SalesChanges(salesId, beforeQuantity, afterQuantity)
+        VALUES(OLD.id, OLD.quantity, NEW.quantity);
+    END IF;
 END //
 
-
-
-```java
 DELIMITER ;
-```
 
-
-
-
-
-
-
+![](https://i.imgur.com/xtRcufw.png)
 CREATE TABLE Salaries (
-
-employeeNumber INT PRIMARY KEY,
-
-validFrom DATE NOT NULL,
-
-salary DECIMAL(12, 2) NOT NULL DEFAULT 0
-
+    employeeNumber INT PRIMARY KEY,
+    validFrom DATE NOT NULL,
+    salary DECIMAL(12, 2) NOT NULL DEFAULT 0
 );
-
-
 
 INSERT INTO salaries(employeeNumber, validFrom, salary) VALUES
-
 (1002, '2000-01-01', 50000),
-
 (1056, '2000-01-01', 60000),
-
 (1076, '2000-01-01', 70000);
 
-
-
 CREATE TABLE SalaryArchives (
-
-id INT PRIMARY KEY AUTO_INCREMENT,
-
-employeeNumber INT,
-
-validFrom DATE NOT NULL,
-
-salary DECIMAL(12, 2) NOT NULL,
-
-deletedAt TIMESTAMP DEFAULT NOW()
-
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    employeeNumber INT,
+    validFrom DATE NOT NULL,
+    salary DECIMAL(12, 2) NOT NULL,
+    deletedAt TIMESTAMP DEFAULT NOW()
 );
 
-
-
-```java
 DELIMITER //
-```
-
-
 
 CREATE TRIGGER before_salaries_delete BEFORE DELETE ON salaries FOR EACH ROW
-
 BEGIN
-
-INSERT INTO SalaryArchives(employeeNumber, validFrom, salary)
-
-VALUES(OLD.employeeNumber, OLD.validFrom, OLD.salary);
-
+    INSERT INTO SalaryArchives(employeeNumber, validFrom, salary)
+    VALUES(OLD.employeeNumber, OLD.validFrom, OLD.salary);
 END //
 
-
-
-```java
 DELIMITER ;
-```
 
-
-
-
-
-
-
-
-
-
+![](https://i.imgur.com/kXv3ba0.png)
 
 DROP TABLE IF EXISTS Salaries;
 
-
-
 CREATE TABLE Salaries (
-
-employeeNumber INT PRIMARY KEY,
-
-validFrom DATE NOT NULL,
-
-salary DECIMAL(12,2) NOT NULL DEFAULT 0
-
+    employeeNumber INT PRIMARY KEY,
+    validFrom DATE NOT NULL,
+    salary DECIMAL(12,2) NOT NULL DEFAULT 0
 );
-
-
 
 INSERT INTO salaries(employeeNumber, validFrom, salary) VALUES
-
 (1002, '2000-01-01', 50000),
-
 (1056, '2000-01-01', 60000),
-
 (1076, '2000-01-01', 70000);
 
-
-
 CREATE TABLE SalaryBudgets (
-
-total DECIMAL(15,2) NOT NULL
-
+    total DECIMAL(15,2) NOT NULL
 );
 
-
-
 INSERT INTO SalaryBudgets(total)
-
-```java
 SELECT SUM(salary) FROM Salaries;
-```
-
-
 
 CREATE TRIGGER after_salaries_delete AFTER DELETE ON Salaries FOR EACH ROW
-
 BEGIN
-
-UPDATE SalaryBudgets SET total = total - OLD.salary;
-
+    UPDATE SalaryBudgets SET total = total - OLD.salary;
 END;
-
-
-
-
-
