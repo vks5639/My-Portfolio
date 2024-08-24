@@ -1,30 +1,19 @@
-## Install MAMP
+## Setting Up the Environment
 
-Download and install MAMP from MAMP's official website.
+- Install MAMP:
 
-Create a Database
+    - Download and install MAMP, which is a local server environment that allows you to run PHP and MySQL on your computer.
+    - Objective: Set up a local development environment that mimics a real-world server setup for testing purposes.
 
-Open MAMP and start the servers.
+- Create a Database:
 
-Open PHPMyAdmin
-
-Connect to local database using the following credentials:
-
-Host	localhost
-
-Port	3306
-
-User	root
-
-Password	root
-
-Create a new database called classic_models
-
-Import the sql file classic_models in the database
-
-
-
-
+    - Start the MAMP servers and open PHPMyAdmin, a tool for managing MySQL databases.
+    - Objective: Create a new database named classic_models and import the SQL file classic_models.sql, which contains the initial schema and data.
+    - Credentials:
+      - Host: localhost
+      - Port: 3306
+      - User: root
+      - Password: root
 
 ## Schema Testing
 
