@@ -32,29 +32,7 @@ This repository was created to showcase my analytical and technical skills (Exce
 
 ## Portfolio Projects
 This section contains a list of projects with brief descriptions.
-### Analyzing COVID RNA Sequences
-**Description:** In this project, I delve into the RNA sequences of COVID, focusing on two significant variants: Delta and Omicron. RNA, a vital nucleic acid, serves as the genetic blueprint for COVID, facilitating its cellular entry and replication. By leveraging data from the National Institutes of Health (NIH), I dissect the metadata for each COVID RNA sequence to unravel insights into these variants.<br>
-**Code:** [covid_genome](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/covid_genome.ipynb) <br>
-**Original dataset:** [ncbi_datasets](https://drive.google.com/file/d/1S2ZDjdRkY78kZxBtc9YNUh0mByTHXQ23/view) <br>
-**Skills:** analytical thinking, data cleaning, data analysis, data vizualization, presentations<br>
-**Hard skills:** MS PowerPoint, Python: Pandas, NumPy, Mathplotlib, Seaborn. <br>
-**Results:** Identified exact mutation points by finding alignments and mismatches between any two RNA sequences. Color coding resulted in visually differentiating alignments from mismatches, such as insertions, deletions, and substitutions, making it easier to interpret and analyze genetic variations.
 
-### Finding Heavy Traffic Indicators on I-94
-**Description:** In this analysis, we'll examine data related to traffic heading west on the I-94 Interstate. Our objective is to identify several factors that contribute to congestion on I-94. Potential factors include weather conditions, time of day, and day of the week, among others. <br>
-**Code:** [I-94 Traffic](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/i94traffic.ipynb) <br>
-**Original dataset:** [Metro_Interstate_Traffic_Volume](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/Metro_Interstate_Traffic_Volume.csv) <br>
-**Skills:** analytical thinking, data cleaning, data analysis, data vizualization.<br>
-**Hard skills:** Excel, Pivot Tables, Formulas, Functions, Charts, Dashboards, Slices, Pivot Charts.<br>
-**Results:** In this project, my aim was to identify indicators of heavy traffic on the I-94 Interstate highway. Through the analysis, I identified two main types of indicators:
-* Time Indicators:
-   * Traffic tends to be heavier during warm months (March–October) in contrast to cold months (November–February).
-   * Heavy traffic is typically observed on business days compared to weekends.
-   * Rush hours on business days usually occur around 7 AM and 4 PM.
-* Weather Indicators:
-   * Heavy traffic is associated with specific weather conditions, including shower snow, light rain, and snow, and proximity thunderstorms with drizzle.
-   * These findings provide valuable insights into the factors influencing traffic patterns on the I-94 Interstate highway.
-   * Understanding these indicators can aid in traffic management and infrastructure planning to improve overall transportation efficiency and safety. <br>
 
 ###  Database Testing and Automation Project
 **Description:** This project involved comprehensive database testing using MySQL, focusing on schema validation, stored procedures, triggers, and automated testing scripts. The goal was to ensure the accuracy, performance, and reliability of database operations, specifically within a local development environment. <br>
@@ -95,13 +73,7 @@ This section contains a list of projects with brief descriptions.
 * Java JDBC integration for database operations.
 * Maven project management and dependency handling.
 
-### Analyzing Startup Fundraising Deals from Crunchbase 
-**Description:** As part of my project, I undertook an in-depth analysis of startup fundraising deals sourced from Crunchbase.com. Leveraging the techniques acquired in pandas, I thoroughly explored the dataset to unravel trends, patterns, and noteworthy observations within the realm of startup financing. This endeavor not only honed my skills in data analysis but also provided valuable insights into the dynamics of fundraising rounds in the startup ecosystem. <br>
-**Code:** [crunchbase](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/crunchbase.ipynb) <br>
-**Original dataset:** [crunchbase_investments](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/crunchbase-investments.csv) <br>
-**Skills:** exploratory analysis, analytical thinking, , data vizualization<br>
-**Hard skills:** data cleaning, data analysis, Python, Pandas, SQL, Excel, Dashboards <br>
-**Results:** I gained a comprehensive understanding of the startup investments dataset. This exploration paved the way for insightful analysis, where I extracted valuable insights into fundraising rounds and identified notable trends in startup financing.
+
 ## Study Projects
 ### Telling Stories With Data
 **Website:** [Telling Stories With Data](https://vks5639.github.io/TSWD-Portfolio/) <br>
@@ -157,6 +129,38 @@ The above metric can present us with a good overview of the percentage of user c
 **Report:** [Final Report](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/superstore2.xlsx) <br>
 **Original dataset:** [Retail Sales](https://community.tableau.com/s/question/0D54T00000CWeX8SAL/sample-superstore-sales-excelxls) <br>
 **Skills:** Data preparation and cleaning, Data analysis and profiling using PivotTables, Variance and trend analysis, Statistical analysis of KPIs, What-If scenario planning, Generating actionable insights, and Creating comprehensive Excel reports. <br>
+
+### Analyzing COVID RNA Sequences
+**Description:** In this project, I delve into the RNA sequences of COVID, focusing on two significant variants: Delta and Omicron. RNA, a vital nucleic acid, serves as the genetic blueprint for COVID, facilitating its cellular entry and replication. By leveraging data from the National Institutes of Health (NIH), I dissect the metadata for each COVID RNA sequence to unravel insights into these variants.<br>
+**Code:** [covid_genome](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/covid_genome.ipynb) <br>
+**Original dataset:** [ncbi_datasets](https://drive.google.com/file/d/1S2ZDjdRkY78kZxBtc9YNUh0mByTHXQ23/view) <br>
+**Skills:** analytical thinking, data cleaning, data analysis, data vizualization, presentations<br>
+**Hard skills:** MS PowerPoint, Python: Pandas, NumPy, Mathplotlib, Seaborn. <br>
+**Results:** Identified exact mutation points by finding alignments and mismatches between any two RNA sequences. Color coding resulted in visually differentiating alignments from mismatches, such as insertions, deletions, and substitutions, making it easier to interpret and analyze genetic variations.
+
+### Finding Heavy Traffic Indicators on I-94
+**Description:** In this analysis, we'll examine data related to traffic heading west on the I-94 Interstate. Our objective is to identify several factors that contribute to congestion on I-94. Potential factors include weather conditions, time of day, and day of the week, among others. <br>
+**Code:** [I-94 Traffic](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/i94traffic.ipynb) <br>
+**Original dataset:** [Metro_Interstate_Traffic_Volume](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/Metro_Interstate_Traffic_Volume.csv) <br>
+**Skills:** analytical thinking, data cleaning, data analysis, data vizualization.<br>
+**Hard skills:** Excel, Pivot Tables, Formulas, Functions, Charts, Dashboards, Slices, Pivot Charts.<br>
+**Results:** In this project, my aim was to identify indicators of heavy traffic on the I-94 Interstate highway. Through the analysis, I identified two main types of indicators:
+* Time Indicators:
+   * Traffic tends to be heavier during warm months (March–October) in contrast to cold months (November–February).
+   * Heavy traffic is typically observed on business days compared to weekends.
+   * Rush hours on business days usually occur around 7 AM and 4 PM.
+* Weather Indicators:
+   * Heavy traffic is associated with specific weather conditions, including shower snow, light rain, and snow, and proximity thunderstorms with drizzle.
+   * These findings provide valuable insights into the factors influencing traffic patterns on the I-94 Interstate highway.
+   * Understanding these indicators can aid in traffic management and infrastructure planning to improve overall transportation efficiency and safety. <br>
+
+### Analyzing Startup Fundraising Deals from Crunchbase 
+**Description:** As part of my project, I undertook an in-depth analysis of startup fundraising deals sourced from Crunchbase.com. Leveraging the techniques acquired in pandas, I thoroughly explored the dataset to unravel trends, patterns, and noteworthy observations within the realm of startup financing. This endeavor not only honed my skills in data analysis but also provided valuable insights into the dynamics of fundraising rounds in the startup ecosystem. <br>
+**Code:** [crunchbase](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/crunchbase.ipynb) <br>
+**Original dataset:** [crunchbase_investments](https://github.com/vks5639/My_Portfolio/blob/main/Portfolio%20Projects/crunchbase-investments.csv) <br>
+**Skills:** exploratory analysis, analytical thinking, , data vizualization<br>
+**Hard skills:** data cleaning, data analysis, Python, Pandas, SQL, Excel, Dashboards <br>
+**Results:** I gained a comprehensive understanding of the startup investments dataset. This exploration paved the way for insightful analysis, where I extracted valuable insights into fundraising rounds and identified notable trends in startup financing.
 
 ## Certificates
 * [Tableau for Data Scientists](https://github.com/vks5639/My_Portfolio/blob/main/Certificates/CertificateOfCompletion_Tableau%20for%20Data%20Scientists.pdf) - Linkedin Learning
