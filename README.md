@@ -19,7 +19,7 @@ This repository was created to showcase my analytical and technical skills (Exce
 ## Contents
 * [About me](#about-me)
 * [Portfolio Projects](#portfolio-projects)
-  - [Database Testing and Automation Project](#database-testing-and-automation-project)
+  - [Database Testing and Automation Project](https://github.com/vks5639/My-Portfolio/blob/master/Database_Testing.md)
      
 * [Study Projects](#study-projects)
   - [Telling Stories With Data](#telling-stories-with-data)
