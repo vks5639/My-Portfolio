@@ -16,23 +16,22 @@ This repository was created to showcase my analytical and technical skills (Exce
 ## Contents
 * [About me](#about-me)
 * [Portfolio Projects](#portfolio-projects)
-  - [Analyzing COVID RNA Sequences](#analyzing-covid-rna-sequences)
-  - [Finding Heavy Traffic Indicators on I-94](#finding-heavy-traffic-indicators-on-I-94)
   - [Database Testing and Automation Project](#database-testing-and-automation-project)
-  - [Analyzing Startup Fundraising Deals from Crunchbase](#analyzing-startup-fundraising-deals-from-crunchbase)
- 
+     
 * [Study Projects](#study-projects)
   - [Telling Stories With Data](#telling-stories-with-data)
   - [Window Functions SQL Analytics for Northwind Traders](#window-functions-sql-analytics-for-northwind-traders)
   - [Amazon Stock Market Analysis](#amazon-stock-market-analysis)
   - [Identifying Customers Likely to Churn for a Telecommunications Provider](#identifying-customers-likely-to-churn-for-a-telecommunications-provider)
+  - [Analyzing COVID RNA Sequences](#analyzing-covid-rna-sequences)
+  - [Finding Heavy Traffic Indicators on I-94](#finding-heavy-traffic-indicators-on-I-94)
+  - [Analyzing Startup Fundraising Deals from Crunchbase](#analyzing-startup-fundraising-deals-from-crunchbase)
 
 * [Certificates](#certificates)
 * [Contacts](#contacts)
 
 ## Portfolio Projects
 This section contains a list of projects with brief descriptions.
-
 
 ###  Database Testing and Automation Project
 **Description:** This project involved comprehensive database testing using MySQL, focusing on schema validation, stored procedures, triggers, and automated testing scripts. The goal was to ensure the accuracy, performance, and reliability of database operations, specifically within a local development environment. <br>
