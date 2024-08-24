@@ -64,7 +64,9 @@
 
 
 
-Stored Procedure: SelectAllCustomers
+## Stored Procedure: 
+
+### SelectAllCustomers
 
 delimiter //
 
@@ -81,6 +83,8 @@ Stored Procedure: SelectAllCustomersByCity
 
 delimiter //
 
+### SelectAllCustomersByCity
+
 create procedure SelectAllCustomersByCity(IN mycity varchar(50))
 begin
     select * from customers where city=mycity;
@@ -94,6 +98,8 @@ Stored Procedure: SelectAllCustomersByCityAndPin
 
 delimiter //
 
+### SelectAllCustomersByCityAndPin
+
 create procedure SelectAllCustomersByCityAndPin(IN mycity varchar(50), IN pcode varchar(15))
 begin
     select * from customers where city=mycity and postalCode=pcode;
@@ -103,7 +109,7 @@ delimiter ;
 
 call SelectAllCustomersByCityAndPin('Singapore', '079903');
 
-Stored Procedure: get_order_by_cust
+### get_order_by_cust
 
 delimiter //
 
@@ -132,7 +138,7 @@ DELIMITER ;
 call get_order_by_cust(141, @shipped, @canceled, @resolved, @disputed);
 select @shipped, @canceled, @resolved, @disputed;
 
-Stored Procedure: GetCustomerShipping
+### GetCustomerShipping
 
 delimiter //
 
@@ -159,7 +165,7 @@ DELIMITER ;
 call GetCustomerShipping(112, @shipping);
 select @shipping;
 
-Stored Procedure: InsertSupplierProduct
+### InsertSupplierProduct
 
 delimiter //
 
@@ -183,439 +189,234 @@ call InsertSupplierProduct(1,1);
 call InsertSupplierProduct(1,2);
 call InsertSupplierProduct(1,3);
 
-Stored Procedures Testing
+## Stored Procedures Testing
 
+![Test Cases]("https://i.imgur.com/xBOvnsX.png)
 
+![Test Cases Final]("https://i.imgur.com/Ro1oNpa.png")
 
+# Automated Database Testing (Maven Project)
 
+- Overview:
 
+    - Automated testing ensures that the stored procedures and database operations function correctly and meet the required specifications.
+      
+- Dependencies:
 
+    - Maven: Used to manage project dependencies.
+    - TestNG: A testing framework used to automate the execution of test cases.
+    - MySQL Connector/J: A driver that allows Java applications to connect to MySQL databases.
 
+- Test Script Example:
 
+    - Setup: Establish a connection to the database.
+    - Test Cases:
+        - Verify the existence of stored procedures.
+        - Execute stored procedures and compare their results with direct SQL queries to ensure correctness.
+        - Test stored procedures that handle input parameters, such as filtering customers by city or retrieving order details by customer.
 
+- Teardown: Close the database connection.
 
+- Objective: Ensure that stored procedures execute correctly, return the expected results, and handle input parameters appropriately.
 
-
-
-Automated Database Testing (Maven Project)
-
-Add dependencies in pom.xml
+- Add dependencies in pom.xml
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>DatabaseTesting</groupId>
+	<artifactId>DatabaseTesting</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<dependencies>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.3.0</version>
+		</dependency>
 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.12.0</version>
+		</dependency>
 
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-<modelVersion>4.0.0</modelVersion>
-
-<groupId>DatabaseTesting</groupId>
-
-<artifactId>DatabaseTesting</artifactId>
-
-<version>0.0.1-SNAPSHOT</version>
-
-<dependencies>
-
-<dependency>
-
-<groupId>com.mysql</groupId>
-
-<artifactId>mysql-connector-j</artifactId>
-
-<version>8.3.0</version>
-
-</dependency>
-
-
-
-<dependency>
-
-<groupId>org.apache.commons</groupId>
-
-<artifactId>commons-lang3</artifactId>
-
-<version>3.12.0</version>
-
-</dependency>
-
-
-
-<dependency>
-
-<groupId>org.testng</groupId>
-
-<artifactId>testng</artifactId>
-
-<version>7.10.2</version>
-
-<scope>test</scope>
-
-</dependency>
-
-</dependencies>
-
-
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.10.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 </project>
 
+- Test Script
 
-
-
-
-Test Script
-
-```java
 package storedProcedureTesting;
-```
 
 
-
-
-
-```java
 import java.sql.CallableStatement;
-```
-
-```java
 import java.sql.Connection;
-```
-
-```java
 import java.sql.DriverManager;
-```
-
-```java
 import java.sql.ResultSet;
-```
-
-```java
 import java.sql.SQLException;
-```
-
-```java
 import java.sql.Statement;
-```
-
-```java
 import java.sql.Types;
-```
 
-
-
-```java
 import org.apache.commons.lang3.StringUtils;
-```
-
-```java
 import org.testng.Assert;
-```
-
-```java
 import org.testng.annotations.AfterClass;
-```
-
-```java
 import org.testng.annotations.BeforeClass;
-```
-
-```java
 import org.testng.annotations.Test;
-```
 
 
-
-
-
-```java
 public class SPTesting {
-```
+	
+	Connection con = null;
+	Statement stmt = null;
+	ResultSet rs;
+	CallableStatement cstmt = null;
+	ResultSet rs1;
+	ResultSet rs2;
+	
+	
+	@BeforeClass
+	void setup() throws SQLException {
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/classic_models","root" ,"root");
+		
+	}
+	
+	@AfterClass
+	void tearDown() throws SQLException {
+		con.close();
+	}
+	
+	@Test(priority=1)
+	public void test_storedProcedureExists() throws SQLException {
+		stmt=con.createStatement();
+		rs=stmt.executeQuery("SHOW PROCEDURE STATUS WHERE Name='SelectAllCustomers'");
+		rs.next();
+		Assert.assertEquals(rs.getString("Name"), "SelectAllCustomers");
+	}
+	
+	@Test(priority=2)
+	void test_SelectAllCustomers() throws SQLException {
+		cstmt=con.prepareCall("{CALL SelectAllCustomers()}");
+		rs1=cstmt.executeQuery();
+		
+		Statement stmt=con.createStatement();
+		rs2=stmt.executeQuery("SELECT * FROM customers");
+		
+		Assert.assertTrue(compareResultSets(rs1,rs2));
+		
+	}
+	
+	@Test(priority=3)
+	void test_customersByCity() throws SQLException {
+		Statement stmt = con.createStatement();
+		rs1=stmt.executeQuery("SELECT * FROM customers WHERE city='Singapore'");
+		
+		CallableStatement cstmt = con.prepareCall("{CALL SelectCustomersByCity(?)}");
+		cstmt.setString(1, "Singapore");
+		rs2=cstmt.executeQuery();
+		
+		Assert.assertTrue(compareResultSets(rs1, rs2));
+	}
+	
+	@Test(priority=4)
+	void test_customersByCityAndPinCode() throws SQLException {
+		Statement stmt = con.createStatement();
+		rs1=stmt.executeQuery("SELECT * FROM customers WHERE city='Singapore' and postalCode='079903'");
+		
+		CallableStatement cstmt = con.prepareCall("{CALL customersByCityAndPin(?,?)}");
+		cstmt.setString(1, "Singapore");
+		cstmt.setString(2, "079903");
+		rs2=cstmt.executeQuery();
+		
+		Assert.assertTrue(compareResultSets(rs1, rs2));
+	}
+	
+	
+	@Test(priority=5)
+	void test_get_order_by_cust() throws SQLException {
+	    cstmt = con.prepareCall("{call get_order_by_cust(?,?,?,?,?)}");
+	    cstmt.setInt(1, 141);
 
+	    cstmt.registerOutParameter(2, Types.INTEGER);
+	    cstmt.registerOutParameter(3, Types.INTEGER);
+	    cstmt.registerOutParameter(4, Types.INTEGER);
+	    cstmt.registerOutParameter(5, Types.INTEGER);
 
+	    cstmt.executeQuery();
 
-Connection con = null;
+	    int shipped = cstmt.getInt(2);
+	    int canceled = cstmt.getInt(3);
+	    int resolved = cstmt.getInt(4);
+	    int disputed = cstmt.getInt(5);
 
-Statement stmt = null;
+	 
 
-ResultSet rs;
+	    Statement stmt = con.createStatement();
+	    rs = stmt.executeQuery("select (SELECT count(*) as 'shipped' FROM orders WHERE customerNumber = 141 AND status = 'Shipped') as Shipped, " +
+	                           "(SELECT count(*) as 'canceled' FROM orders WHERE customerNumber = 141 AND status = 'Canceled') as Canceled, " +
+	                           "(SELECT count(*) as 'resolved' FROM orders WHERE customerNumber = 141 AND status = 'Resolved') as Resolved, " +
+	                           "(SELECT count(*) as 'disputed' FROM orders WHERE customerNumber = 141 AND status = 'Disputed') as Disputed;");
 
-CallableStatement cstmt = null;
+	    rs.next();
 
-ResultSet rs1;
+	    int exp_shipped = rs.getInt("shipped");
+	    int exp_canceled = rs.getInt("canceled");
+	    int exp_resolved = rs.getInt("resolved");
+	    int exp_disputed = rs.getInt("disputed");
 
-ResultSet rs2;
+	    if (shipped == exp_shipped && canceled == exp_canceled && resolved == exp_resolved && disputed == exp_disputed)
+	        Assert.assertTrue(true);
+	    else
+	        Assert.assertTrue(false);
+	}
+	
+	
+	@Test(priority=6)
+	void test_get_customerShipping() throws SQLException {
+	    cstmt = con.prepareCall("{call GetCustomerShipping(?,?)}");
+	    cstmt.setInt(1, 112);
+	    cstmt.registerOutParameter(2, Types.VARCHAR);
 
+	    cstmt.executeQuery();
 
+	    String shippingTime = cstmt.getString(2);
+	    
+	    Statement stmt = con.createStatement();
+	    rs = stmt.executeQuery("SELECT country, CASE WHEN country='USA' THEN '2-day Shipping' WHEN country='Canada' THEN '3-day Shipping' ELSE '5-day Shipping' END as ShippingTime FROM customers WHERE customerNumber=112");
 
+	    rs.next();
 
+	    String exp_shipping_Time = rs.getString("ShippingTime");
+	    
+	    Assert.assertEquals(shippingTime, exp_shipping_Time);
+	}
 
-@BeforeClass
-
-void setup() throws SQLException {
-
-con = DriverManager.getConnection("jdbc:mysql://localhost:3306/classic_models","root" ,"root");
-
-
+	
+	public boolean compareResultSets(ResultSet resultSet1, ResultSet resultSet2) throws SQLException {
+        while (resultSet1.next()) {
+            resultSet2.next();
+            int count = resultSet1.getMetaData().getColumnCount();
+            for (int i = 1; i <= count; i++) {
+                if (!StringUtils.equals(resultSet1.getString(i), resultSet2.getString(i))) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+	
+	
 
 }
 
 
-
-@AfterClass
-
-void tearDown() throws SQLException {
-
-con.close();
-
-}
-
-
-
-@Test(priority=1)
-
-public void test_storedProcedureExists() throws SQLException {
-
-stmt=con.createStatement();
-
-rs=stmt.executeQuery("SHOW PROCEDURE STATUS WHERE Name='SelectAllCustomers'");
-
-rs.next();
-
-Assert.assertEquals(rs.getString("Name"), "SelectAllCustomers");
-
-}
-
-
-
-@Test(priority=2)
-
-void test_SelectAllCustomers() throws SQLException {
-
-cstmt=con.prepareCall("{CALL SelectAllCustomers()}");
-
-rs1=cstmt.executeQuery();
-
-
-
-Statement stmt=con.createStatement();
-
-rs2=stmt.executeQuery("SELECT * FROM customers");
-
-
-
-Assert.assertTrue(compareResultSets(rs1,rs2));
-
-
-
-}
-
-
-
-@Test(priority=3)
-
-void test_customersByCity() throws SQLException {
-
-Statement stmt = con.createStatement();
-
-rs1=stmt.executeQuery("SELECT * FROM customers WHERE city='Singapore'");
-
-
-
-CallableStatement cstmt = con.prepareCall("{CALL SelectCustomersByCity(?)}");
-
-cstmt.setString(1, "Singapore");
-
-rs2=cstmt.executeQuery();
-
-
-
-Assert.assertTrue(compareResultSets(rs1, rs2));
-
-}
-
-
-
-@Test(priority=4)
-
-void test_customersByCityAndPinCode() throws SQLException {
-
-Statement stmt = con.createStatement();
-
-rs1=stmt.executeQuery("SELECT * FROM customers WHERE city='Singapore' and postalCode='079903'");
-
-
-
-CallableStatement cstmt = con.prepareCall("{CALL customersByCityAndPin(?,?)}");
-
-cstmt.setString(1, "Singapore");
-
-cstmt.setString(2, "079903");
-
-rs2=cstmt.executeQuery();
-
-
-
-Assert.assertTrue(compareResultSets(rs1, rs2));
-
-}
-
-
-
-
-
-@Test(priority=5)
-
-void test_get_order_by_cust() throws SQLException {
-
-cstmt = con.prepareCall("{call get_order_by_cust(?,?,?,?,?)}");
-
-cstmt.setInt(1, 141);
-
-
-
-cstmt.registerOutParameter(2, Types.INTEGER);
-
-cstmt.registerOutParameter(3, Types.INTEGER);
-
-cstmt.registerOutParameter(4, Types.INTEGER);
-
-cstmt.registerOutParameter(5, Types.INTEGER);
-
-
-
-cstmt.executeQuery();
-
-
-
-int shipped = cstmt.getInt(2);
-
-int canceled = cstmt.getInt(3);
-
-int resolved = cstmt.getInt(4);
-
-int disputed = cstmt.getInt(5);
-
-
-
-
-
-
-
-Statement stmt = con.createStatement();
-
-rs = stmt.executeQuery("select (SELECT count(*) as 'shipped' FROM orders WHERE customerNumber = 141 AND status = 'Shipped') as Shipped, " +
-
-"(SELECT count(*) as 'canceled' FROM orders WHERE customerNumber = 141 AND status = 'Canceled') as Canceled, " +
-
-"(SELECT count(*) as 'resolved' FROM orders WHERE customerNumber = 141 AND status = 'Resolved') as Resolved, " +
-
-"(SELECT count(*) as 'disputed' FROM orders WHERE customerNumber = 141 AND status = 'Disputed') as Disputed;");
-
-
-
-rs.next();
-
-
-
-int exp_shipped = rs.getInt("shipped");
-
-int exp_canceled = rs.getInt("canceled");
-
-int exp_resolved = rs.getInt("resolved");
-
-int exp_disputed = rs.getInt("disputed");
-
-
-
-if (shipped == exp_shipped && canceled == exp_canceled && resolved == exp_resolved && disputed == exp_disputed)
-
-Assert.assertTrue(true);
-
-else
-
-Assert.assertTrue(false);
-
-}
-
-
-
-
-
-@Test(priority=6)
-
-void test_get_customerShipping() throws SQLException {
-
-cstmt = con.prepareCall("{call GetCustomerShipping(?,?)}");
-
-cstmt.setInt(1, 112);
-
-cstmt.registerOutParameter(2, Types.VARCHAR);
-
-
-
-cstmt.executeQuery();
-
-
-
-String shippingTime = cstmt.getString(2);
-
-
-
-Statement stmt = con.createStatement();
-
-rs = stmt.executeQuery("SELECT country, CASE WHEN country='USA' THEN '2-day Shipping' WHEN country='Canada' THEN '3-day Shipping' ELSE '5-day Shipping' END as ShippingTime FROM customers WHERE customerNumber=112");
-
-
-
-rs.next();
-
-
-
-String exp_shipping_Time = rs.getString("ShippingTime");
-
-
-
-Assert.assertEquals(shippingTime, exp_shipping_Time);
-
-}
-
-
-
-
-
-public boolean compareResultSets(ResultSet resultSet1, ResultSet resultSet2) throws SQLException {
-
-while (resultSet1.next()) {
-
-resultSet2.next();
-
-int count = resultSet1.getMetaData().getColumnCount();
-
-for (int i = 1; i <= count; i++) {
-
-if (!StringUtils.equals(resultSet1.getString(i), resultSet2.getString(i))) {
-
-return false;
-
-}
-
-}
-
-}
-
-return true;
-
-}
-
-
-
-
-
-
-
-}
-
-
+![Console Output]("https://i.imgur.com/T2IXAGn.png")
 
 
 
