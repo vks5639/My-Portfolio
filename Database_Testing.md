@@ -191,9 +191,9 @@ call InsertSupplierProduct(1,3);
 
 ## Stored Procedures Testing
 
-![Test Cases]("https://i.imgur.com/xBOvnsX.png)
+![Test Cases](https://i.imgur.com/xBOvnsX.png)
 
-![Test Cases Final]("https://i.imgur.com/Ro1oNpa.png")
+![Test Cases Final](https://i.imgur.com/Ro1oNpa.png)
 
 # Automated Database Testing (Maven Project)
 
@@ -416,7 +416,7 @@ public class SPTesting {
 }
 
 
-![Console Output]("https://i.imgur.com/T2IXAGn.png")
+![Console Output](https://i.imgur.com/T2IXAGn.png)
 
 
 
