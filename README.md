@@ -7,11 +7,11 @@
 Hello, I’m Vikash Kumar Singh. I graduated with a Master of Information Systems Management from Carnegie Mellon University. I am a passionate and results-driven Quality Assurance Engineer with a strong foundation in automation testing, backed by a Master’s degree in Information Systems Management from Carnegie Mellon University. I specialize in developing robust test frameworks and optimizing database performance, ensuring the reliability and efficiency of complex systems. With hands-on experience in tools like Selenium, TestNG, and various CI/CD pipelines, I am committed to delivering high-quality software solutions. Let's connect if you're looking for someone who can elevate your QA processes!
 
 Skills:
-Programming: Java, Python, R, SQL, NoSQL, MongoDB, XML, HTML, JSON, Gherkin
-Analytics and Visualization: Pandas, NumPy, Matplotlib, Tableau, SAS, Stata
-Testing and Automation Tools: Selenium WebDriver, JUnit, TestNG, Appium, Cucumber, Rest-Assured, Jenkins, Maven, TestRail, Jira, Postman, SOAPUI, Sauce Labs, Page Object Model (POM), Behavior Driven Development (BDD)
-Development and Management Tools: Git, GitHub, Figma, Eclipse, IntelliJ
-Testing Expertise: Manual Testing, Automation Testing, Regression Testing, Performance Testing, API Testing, A/B Testing, Agile/Scrum
+- Programming: Java, Python, R, SQL, NoSQL, MongoDB, XML, HTML, JSON, Gherkin
+- Analytics and Visualization: Pandas, NumPy, Matplotlib, Tableau, SAS, Stata
+- Testing and Automation Tools: Selenium WebDriver, JUnit, TestNG, Appium, Cucumber, Rest-Assured, Jenkins, Maven, TestRail, Jira, Postman, SOAPUI, Sauce Labs, Page Object Model (POM), Behavior Driven Development (BDD)
+- Development and Management Tools: Git, GitHub, Figma, Eclipse, IntelliJ
+- Testing Expertise: Manual Testing, Automation Testing, Regression Testing, Performance Testing, API Testing, A/B Testing, Agile/Scrum
 
 For more information please check my [**Resume**](https://github.com/vks5639/My-Portfolio/blob/master/Vikash_Singh_Resume.pdf).
 
@@ -46,22 +46,22 @@ This section contains a list of projects with brief descriptions.
   * Maven: Managed dependencies and build automation for the project
     
 **Key Features and Components:**
-  #### Schema Testing
+  ### Schema Testing
   * Stored Procedures: Developed and tested various stored procedures like SelectAllCustomers, SelectAllCustomersByCity, and GetCustomerShipping, which performed specific tasks and returned multiple results.
   * Stored Functions: Created reusable SQL functions such as CustomerLevel for calculating and returning values based on specific business logic.
 
-  #### Stored Procedures and Functions
+  ### Stored Procedures and Functions
   * MySQL: Database management for creating and managing databases, tables, stored procedures, and triggers.
   * TestNG: Used for automating the testing process, writing and executing test cases.
   * Java (JDBC): For database connectivity and executing SQL commands from Java applications.
   * Maven: Managed dependencies and build automation for the project
 
-  #### Trigger Implementation
+  ### Trigger Implementation
   * Implemented triggers to automate data integrity checks and business logic execution upon insertions, updates, and deletions in the database.
   * BEFORE INSERT Trigger: Ensured data consistency in WorkCenterStats by updating total capacity before inserting into WorkCenters.
   * AFTER UPDATE Trigger: Logged changes in sales data in SalesChanges table whenever an update occurred in the sales table.
 
-  #### Automated Testing
+  ### Automated Testing
   * TestNG Framework: Created automated test scripts for verifying the functionality of stored procedures, functions, and triggers. This included:
   * Testing the existence of stored procedures.
   * Comparing results from stored procedures against direct SQL queries to validate consistency.
