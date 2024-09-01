@@ -35,7 +35,7 @@ This project focuses on automating the testing of an API for an e-commerce platf
 ### 3. **Running Tests via Postman Shared URL**
    - The collection was shared through a Postman URL, allowing others to execute the tests directly from their browser without requiring the Postman desktop application.
 
-![](https://i.imgur.com/D2mUeHO.png)
+![](https://i.imgur.com/m82UOSf.png)
 
 ### 4. **Integration with GitHub**
    - The Postman collection and Newman scripts were committed to a GitHub repository.
