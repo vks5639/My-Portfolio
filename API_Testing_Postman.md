@@ -14,7 +14,7 @@ This project focuses on automating the testing of an API for an e-commerce platf
      - **View Cart Content**: Retrieves the current contents of the cart.
      - **Edit Product Quantity in Cart**: Modifies the quantity of a product already in the cart.
      - **Remove Product from Cart**: Removes a specified product from the cart.
-     - 
+       
 ![](https://i.imgur.com/kv06Bei.png)   
   
 ![](https://i.imgur.com/8nbkiGl.png)
