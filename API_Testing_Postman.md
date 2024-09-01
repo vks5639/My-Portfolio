@@ -1,4 +1,4 @@
-# API Testing with Postman and Newman
+# API Testing with Postman
 
 ## About the Project
 
