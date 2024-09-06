@@ -38,7 +38,40 @@ This repository was created to showcase my analytical and technical skills (Exce
 ## Portfolio Projects
 This section contains a list of projects with brief descriptions.
 
-###  Database Testing and Automation Project
+### API Testing with Postman
+**Description:** This project focused on automating the testing of an API for an e-commerce platform's cart module. The API supports operations like creating sessions, adding products to the cart, viewing cart contents, editing product quantities, and removing products. A Postman collection was created to organize and automate these tests, which were executed using various methods like Newman (Postman's CLI), shared Postman URLs, GitHub integration, and Jenkins automation.
+
+* **Postman Collection Creation:**
+  API requests related to the cart module were grouped in a Postman collection, including:
+  * Create Session/Token
+  * Add Product to Cart
+  * View Cart Content
+  * Edit Product Quantity
+  * Remove Product from Cart
+
+* **Automating Tests Using Newman:**
+  Ran the collection via Newman with detailed test summaries.
+  * **Key Stats:**
+    * Total Iterations: 10
+    * Total Requests: 50
+    * Total Assertions: 60
+    * Avg. Response Time: 115ms
+    * Total Failures: 0
+
+* **Postman Shared URL Execution:**
+  Shared the collection URL, enabling test execution through a browser.
+
+* **GitHub Integration:**
+  Committed the collection and Newman scripts to GitHub for continuous integration.
+
+* **Automating with Jenkins:**
+  Jenkins was configured to run the tests automatically from GitHub on a schedule or upon code changes.
+
+**Conclusion:**
+This project showcased how Postman, Newman, GitHub, and Jenkins can streamline API testing and continuous integration, ensuring the cart module API's reliability. The zero test failures validated the API’s stability, and the project emphasized the importance of continuous testing in a production environment.
+
+
+### Database Testing and Automation Project
 **Description:** This project involved comprehensive database testing using MySQL, focusing on schema validation, stored procedures, triggers, and automated testing scripts. The goal was to ensure the accuracy, performance, and reliability of database operations, specifically within a local development environment. <br>
 
 **Technologies Used:** Technologies Used:
@@ -77,6 +110,11 @@ This section contains a list of projects with brief descriptions.
 * Java JDBC integration for database operations.
 * Maven project management and dependency handling.
 
+### TestMaestro AI Test Automation Tool Idea - Workbook
+
+TestMaestro is more than a testing tool; it's a testament to innovation and a commitment to excellence in software testing. It's a comprehensive solution that transforms and elevates the testing process, ensuring software quality while optimizing both time and cost.
+
+Key features of TestMaestro include robust test case management, versatile cross-platform testing capabilities, efficient defect tracking, advanced AI-driven test optimization, and sophisticated reporting mechanisms.
 
 ## Study Projects
 ### Telling Stories With Data
