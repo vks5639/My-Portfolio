@@ -21,6 +21,7 @@ This repository was created to showcase my analytical and technical skills (Exce
 * [Portfolio Projects](#portfolio-projects)
   - [API Testing using Postman](https://github.com/vks5639/My-Portfolio/blob/master/API_Testing_Postman.md)
   - [Database Testing and Automation Project](https://github.com/vks5639/My-Portfolio/blob/master/Database_Testing.md)
+  - [TestMaestro AI Test Automation Tool Idea - Workbook](https://github.com/vks5639/My-Portfolio/blob/master/Vikash%20Kumar%20Singh%20Product%20Idea%20Workbook.pdf)
      
 * [Study Projects](#study-projects)
   - [Telling Stories With Data](#telling-stories-with-data)
