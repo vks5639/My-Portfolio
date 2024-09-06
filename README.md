@@ -85,7 +85,7 @@ This project showcased how Postman, Newman, GitHub, and Jenkins can streamline A
   * Maven: Managed dependencies and build automation for the project
     
 **Key Features and Components:**
-
+  
   #### Schema Testing
   * Stored Procedures: Developed and tested various stored procedures like SelectAllCustomers, SelectAllCustomersByCity, and GetCustomerShipping, which performed specific tasks and returned multiple results.
   * Stored Functions: Created reusable SQL functions such as CustomerLevel for calculating and returning values based on specific business logic.
