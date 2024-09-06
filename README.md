@@ -70,6 +70,10 @@ This section contains a list of projects with brief descriptions.
 **Conclusion:**
 This project showcased how Postman, Newman, GitHub, and Jenkins can streamline API testing and continuous integration, ensuring the cart module API's reliability. The zero test failures validated the API’s stability, and the project emphasized the importance of continuous testing in a production environment.
 
+**Skills Gained:**
+* API testing and automation using Postman and Newman.
+* Continuous integration and automation using Jenkins and GitHub.
+* Writing and organizing API test collections in Postman.
 
 ### Database Testing and Automation Project
 **Description:** This project involved comprehensive database testing using MySQL, focusing on schema validation, stored procedures, triggers, and automated testing scripts. The goal was to ensure the accuracy, performance, and reliability of database operations, specifically within a local development environment. <br>
