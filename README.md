@@ -85,20 +85,24 @@ This project showcased how Postman, Newman, GitHub, and Jenkins can streamline A
   * Maven: Managed dependencies and build automation for the project
     
 **Key Features and Components:**
+
   ### Schema Testing
   * Stored Procedures: Developed and tested various stored procedures like SelectAllCustomers, SelectAllCustomersByCity, and GetCustomerShipping, which performed specific tasks and returned multiple results.
   * Stored Functions: Created reusable SQL functions such as CustomerLevel for calculating and returning values based on specific business logic.
+    
 
   ### Stored Procedures and Functions
   * MySQL: Database management for creating and managing databases, tables, stored procedures, and triggers.
   * TestNG: Used for automating the testing process, writing and executing test cases.
   * Java (JDBC): For database connectivity and executing SQL commands from Java applications.
   * Maven: Managed dependencies and build automation for the project
+    
 
   ### Trigger Implementation
   * Implemented triggers to automate data integrity checks and business logic execution upon insertions, updates, and deletions in the database.
   * BEFORE INSERT Trigger: Ensured data consistency in WorkCenterStats by updating total capacity before inserting into WorkCenters.
   * AFTER UPDATE Trigger: Logged changes in sales data in SalesChanges table whenever an update occurred in the sales table.
+    
 
   ### Automated Testing
   * TestNG Framework: Created automated test scripts for verifying the functionality of stored procedures, functions, and triggers. This included:
